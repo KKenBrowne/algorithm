@@ -1,3 +1,4 @@
+package suanfa;
 import com.sun.prism.image.CompoundTexture;
 
 public class UF {

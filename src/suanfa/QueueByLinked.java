@@ -1,24 +1,18 @@
+package suanfa;
 
 
 import java.util.Iterator;
 
 
-public class BagByLinked<Item> implements Iterable<Item>{
+public class QueueByLinked<Item> implements Iterable<Item> {
 	private Node first;
+	private Node last;
 	private int N;
-	
 	private class Node{
-		Item  item;
+		Item item;
 		Node next;
 	}
-	public void add(Item item){
-		
-		Node oldfirst = first;
-		first = new Node();
-		first.item = item;
-		first.next = oldfirst;
-		N++;
-	}
+	
 	public boolean isEmpty(){
 		return N==0;
 	}
@@ -26,6 +20,28 @@ public class BagByLinked<Item> implements Iterable<Item>{
 		return N;
 	}
 	
+	public void enqueue(Item item){
+		//向表尾添加元素
+		Node oldlast = last;
+		last = new Node();
+		last.item = item;
+		last.next = null;
+		if(isEmpty()){
+			first = last;
+		}
+		oldlast.next = last;
+		N++;
+	}
+	public Item dequeue(){
+		//从表头删除元素
+		Item item = first.item;
+		first = first.next;
+		if(isEmpty()){
+			last = null;
+		}
+		N--;
+		return item;
+	}
 	//iterator
 	@Override
 	public Iterator<Item> iterator() {

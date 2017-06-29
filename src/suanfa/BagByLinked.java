@@ -1,17 +1,24 @@
+package suanfa;
 
 
 import java.util.Iterator;
 
-import com.sun.corba.se.impl.orbutil.graph.Node;
 
-
-//链表实现下压栈
-public class StackByLinked<Item> implements Iterable<Item>{
+public class BagByLinked<Item> implements Iterable<Item>{
 	private Node first;
 	private int N;
+	
 	private class Node{
-		Item item;
+		Item  item;
 		Node next;
+	}
+	public void add(Item item){
+		
+		Node oldfirst = first;
+		first = new Node();
+		first.item = item;
+		first.next = oldfirst;
+		N++;
 	}
 	public boolean isEmpty(){
 		return N==0;
@@ -19,25 +26,13 @@ public class StackByLinked<Item> implements Iterable<Item>{
 	public int size(){
 		return N;
 	}
-	//向栈顶添加一个元素
-	public void push(Item item){
-		Node oldFirst = first;
-		first = new Node();
-		first.next = oldFirst;
-		first.item = item;
-		N++;
-	}
-	public Item pop(){
-		Item item = first.item;
-		first = first.next;
-		N--;
-		return item;
-	}
+	
 	//iterator
+	@Override
 	public Iterator<Item> iterator() {
-			
-			return new ListIterator();
-		}
+		
+		return new ListIterator();
+	}
 	private class ListIterator implements Iterator<Item>{
 		private Node current = first;
 		
@@ -52,6 +47,5 @@ public class StackByLinked<Item> implements Iterable<Item>{
 			return item;
 		}
 	}
-	
-	
+
 }

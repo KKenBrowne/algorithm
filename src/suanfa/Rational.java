@@ -1,3 +1,4 @@
+package suanfa;
 import edu.princeton.cs.algs4.StdOut;
 
 public class Rational implements Comparable<Rational> {
@@ -6,7 +7,7 @@ public class Rational implements Comparable<Rational> {
     private long num;   // the numerator
     private long den;   // the denominator
 
-    // create and initialize a new Rational object
+    // 构造函数
     public Rational(long numerator, long denominator) {
 
         // deal with x/0
@@ -69,7 +70,7 @@ public class Rational implements Comparable<Rational> {
         return new Rational(r.num + s.num, r.den + s.den);
     }
 
-    // return gcd(|m|, |n|)
+    // return gcd(|m|, |n|) 最大公约数
     private static long gcd(long m, long n) {
         if (m < 0) m = -m;
         if (n < 0) n = -n;
@@ -77,7 +78,7 @@ public class Rational implements Comparable<Rational> {
         else return gcd(n, m % n);
     }
 
-    // return lcm(|m|, |n|)
+    // return lcm(|m|, |n|) 最小公倍数
     private static long lcm(long m, long n) {
         if (m < 0) m = -m;
         if (n < 0) n = -n;

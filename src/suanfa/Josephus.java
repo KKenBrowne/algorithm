@@ -1,3 +1,4 @@
+package suanfa;
 import edu.princeton.cs.algs4.Queue;
 
 public class Josephus {
