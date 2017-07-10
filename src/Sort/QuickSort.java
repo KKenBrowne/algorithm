@@ -2,7 +2,11 @@ package Sort;
 
 
 import edu.princeton.cs.algs4.StdRandom;
-
+/**
+ * 一般性的快排，有改进空间对于长度为N的无重复数组，平均需要2NlgN次比较以及1/6次交换，最多需要N的平方除以2次比较。
+ * @author Administrator
+ *
+ */
 public class QuickSort {
 	public static void sort(Comparable []a){
 		StdRandom.shuffle(a);
@@ -16,7 +20,7 @@ public class QuickSort {
 		sort(a,lo,j-1);
 		sort(a,j+1,hi);
 	}
-	private static int partition(Comparable []a,int lo,int hi){
+	public static int partition(Comparable []a,int lo,int hi){
 		//左右扫描指针
 		int i = lo;
 		int j = hi+1;
